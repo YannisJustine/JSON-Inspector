@@ -5,9 +5,8 @@ Ce programme permet de visualiser un fichier JSON de manière lisible (prettyPri
 ## Développement 
 
 Ce projet a été réalisé par :
-- [Yannis JUSTINE](https://dwarves.iut-fbleau.fr/gitiut/justiney)
-- [Lucas JUSTINE](https://dwarves.iut-fbleau.fr/gitiut/justine)
-- [Gaël DANIEL](https://dwarves.iut-fbleau.fr/gitiut/daniel)
+- [Yannis JUSTINE](https://github.com/YannisJustine)
+- [Lucas JUSTINE](https://github.com/LucasJustine)
 
 ## Installation
 
