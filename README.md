@@ -1,4 +1,4 @@
-# SAÉ 3.2
+# Projet BUT2
 ## Inspecteur de JSON
 Ce programme permet de visualiser un fichier JSON de manière lisible (prettyPrint)
 
