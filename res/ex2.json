@@ -1,0 +1,38 @@
+{
+    "employees": [
+    {
+    "firstName": "John",
+    "lastName": "Doe",
+    "age": 30,
+    "skills": ["Java", "Python", "JavaScript"],
+    "isManager": false,
+    "salary": 40000
+    },
+    {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "age": 35,
+    "skills": ["Python", "PHP"],
+    "isManager": true,
+    "salary": 50000
+    },
+    {
+    "firstName": "Alice",
+    "lastName": "Smith",
+    "age": 25,
+    "skills": ["Java", "JavaScript", "PHP"],
+    "isManager": false,
+    "salary": 30000
+    }
+    ],
+    "departments": [
+    {
+    "name": "Engineering",
+    "employeeIds": [1, 2, 3]
+    },
+    {
+    "name": "Human Resources",
+    "employeeIds": [2]
+    }
+    ]
+    }

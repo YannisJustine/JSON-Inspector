@@ -1,0 +1,21 @@
+{
+    "frame" : {
+    	"width" : 500,
+	"height" : 500,
+        "min-width" : 0,
+        "min-height" : 0
+    },
+    "font" : {
+        "size" : 20,
+        "name" : "Consolas"
+    },
+    "colors" : {
+        "key" : "#89ddff",
+        "number" : "#c3e88d",
+        "string" : "#f78c6c",
+        "separator" : "#c792ea",
+        "value" : "#2e95d3",
+        "background" : "#292d3e"
+    },
+    "spaces" : 2
+}

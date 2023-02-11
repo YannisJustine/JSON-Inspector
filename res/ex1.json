@@ -1,0 +1,27 @@
+{
+    "string_value": "This is a string.",
+    "number_value": 42,
+    "float_value": 3.14159265,
+    "negative_value": -2.71828,
+    "scientific_value": 1.23456789e-10,
+    "boolean_value": true,
+    "null_value": null,
+    "object_value": {
+        "object_string_value": "This is a string inside an object.",
+        "object_number_value": 1337
+    },
+    "array_value": [
+        "This is a string inside an array.",
+        {"object_in_array": "This is an object inside an array."},
+        [ "This is an array inside an array." ]
+    ],
+    "string_examples" : {
+    	"string_with_escape_chars": "This is a string with a \"quote\", a \\backslash\\, and a /forward_slash/.",
+    	"string_with_backspace": "This is a string\bwith a backspace character inside.",
+    	"string_with_formfeed": "This is a string\fwith a formfeed character inside.",
+    	"string_with_newline": "This is a string\nwith a newline character inside.",
+    	"string_with_carriage_return": "This is a string\rwith a carriage return character inside.",
+    	"string_with_tab": "This is a string\twith a tab character inside.",
+    	"string_with_unicode": "This is a string with a unicode character: \u263A"
+    }
+}

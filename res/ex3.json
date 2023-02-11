@@ -1,0 +1,233 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "AD Extensebility extensions definition file",
+    "type": "object",
+    "properties": {
+        "info": {
+            "type": "object",
+            "properties": {
+                "version": {
+                    "type": "string",
+                    "description": "The extension file version",
+                    "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+"
+                }
+            },
+            "required": [
+                "version"
+            ]
+        },
+        "extensions": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "$ref": "#/definitions/Extension"
+            }
+        }
+    },
+    "required": [
+        "info",
+        "extensions"
+    ],
+    "definitions": {
+        "Extension": {
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/ExtensionType1"
+                },
+                {
+                    "$ref": "#/definitions/ExtensionType2"
+                }
+            ]
+        },
+        "LocatorType1": {
+            "type": "object",
+            "description": "Locator specifying the parameter value from a record's child",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the record child from which to take the parameter value",
+                    "minLength": 1
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "additionalProperties": false
+        },
+        "LocatorType2": {
+            "type": "object",
+            "description": "Locator specifying the parameter value by offset and length",
+            "properties": {
+                "offset": {
+                    "type": "integer",
+                    "description": "Starting offset for the value",
+                    "minimum": 0
+                },
+                "length": {
+                    "type": "integer",
+                    "description": "Length of the value to be read",
+                    "minimum": 0
+                }
+            },
+            "required": [
+                "offset",
+                "length"
+            ],
+            "additionalProperties": false
+        },
+        "ExtensionType1": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "call"
+                    ],
+                    "description": "Extension for call statements",
+                    "minLength": 1
+                },
+                "parameters": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/definitions/ParameterType1"
+                    }
+                }
+            },
+            "required": [
+                "apiKey",
+                "name",
+                "type",
+                "parameters"
+            ],
+            "additionalProperties": false
+        },
+        "ExtensionType2": {
+            "type": "object",
+            "properties": {
+                "apiKey": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 1
+                },
+                "type": {
+                    "type": "string",
+                    "enum": [
+                        "cics"
+                    ],
+                    "description": "Extension for cics statements",
+                    "minLength": 1
+                },
+                "parameters": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "$ref": "#/definitions/ParameterType2"
+                    }
+                }
+            },
+            "required": [
+                "apiKey",
+                "name",
+                "type",
+                "parameters"
+            ],
+            "additionalProperties": false
+        },
+        "ParameterType1": {
+            "type": "object",
+            "description": "Parameter for call statements",
+            "properties": {
+                "position": {
+                    "type": "integer",
+                    "description": "Position of the parameter in the call",
+                    "minimum": 1
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Identifier for the parameter",
+                    "minLength": 1
+                },
+                "resolve": {
+                    "type": "boolean",
+                    "description": "Specify whether to determine the values of the parameter or not",
+                    "default": true
+                },
+                "optional": {
+                    "type": "boolean",
+                    "description": "Specify whether the parameter is optional or not",
+                    "default": false
+                },
+                "locator": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/LocatorType1"
+                        },
+                        {
+                            "$ref": "#/definitions/LocatorType2"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "position",
+                "label",
+                "resolve"
+            ],
+            "additionalProperties": false
+        },
+        "ParameterType2": {
+            "type": "object",
+            "description": "Parameter for CICS statements",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the parameter in the CICS statement",
+                    "minLength": 1
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Identifier for the parameter",
+                    "minLength": 1
+                },
+                "resolve": {
+                    "type": "boolean",
+                    "description": "Specify whether to determine the values of the parameter or not",
+                    "default": true
+                },
+                "optional": {
+                    "type": "boolean",
+                    "description": "Specify whether the parameter is optional or not",
+                    "default": false
+                },
+                "locator": {
+                    "oneOf": [
+                        {
+                            "$ref": "#/definitions/LocatorType1"
+                        },
+                        {
+                            "$ref": "#/definitions/LocatorType2"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "name",
+                "label",
+                "resolve"
+            ],
+            "additionalProperties": false
+        }
+    }
+}
